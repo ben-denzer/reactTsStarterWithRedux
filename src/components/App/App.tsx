@@ -1,21 +1,20 @@
 import * as React from 'react';
-import Hello from '../Hello/Hello';
-import { AppWrapper } from './AppStyles';
+import { Route, Switch } from 'react-router-dom';
 
-const logo = require('../../img/logo.svg');
+import Header from '../Header/Header';
+import HomePage from '../HomePage/HomePage';
+import NotFound from '../NotFound/NotFound';
+import { AppWrapper } from './AppStyles';
 
 class App extends React.Component {
   render() {
     return (
       <AppWrapper>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <Hello name="Ben" enthusiasmLevel={7} />
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <Header />
+        <Switch>
+          <Route exact={true} path="/" component={HomePage} />
+          <Route component={NotFound} />
+        </Switch>
       </AppWrapper>
     );
   }
