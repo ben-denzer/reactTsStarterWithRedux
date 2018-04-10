@@ -13,7 +13,8 @@ export function mapDispatchToProps(
 ) {
   return {
     onDecrement: () => dispatch(actions.decrementEnthusiasm()),
-    onIncrement: () => dispatch(actions.incrementEnthusiasm())
+    onIncrement: () => dispatch(actions.incrementEnthusiasm()),
+    onReset: () => dispatch(actions.resetEnthusiasm())
   };
 }
 

@@ -1,9 +1,10 @@
 import initialState from './initialState';
 import enthusiasmReducer from './enthusiasmReducer';
 import {
+  DECREMENT_ENTHUSIASM,
   INCREMENT_ENTHUSIASM,
-  TEST,
-  DECREMENT_ENTHUSIASM
+  RESET_ENTHUSIASM,
+  TEST
 } from '../constants/index';
 import { EnthusiasmState } from 'types/StoreState';
 
@@ -24,5 +25,11 @@ describe('Enthusiasm Reducer', () => {
     expect(
       enthusiasmReducer(initial, { type: INCREMENT_ENTHUSIASM }).enthusiasmLevel
     ).toEqual(2);
+  });
+  it('should reset', () => {
+    const state: EnthusiasmState = { enthusiasmLevel: -1, languageName: 'a' };
+    expect(
+      enthusiasmReducer(state, { type: RESET_ENTHUSIASM }).enthusiasmLevel
+    ).toEqual(1);
   });
 });
